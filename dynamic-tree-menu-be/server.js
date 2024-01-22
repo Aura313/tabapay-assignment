@@ -12,32 +12,44 @@ app.listen(port, () => {
 
 let treeData = [
   {
+    id: 'root', // unique identifier
     name: 'Root',
-    children: [
+    children: [ // array of children nodes
       {
+        id: 'parent-a',
         name: 'Parent A',
         children: [
-          { name: 'Child A1' },
+          { id: 'child-a1', name: 'Child A1' },
           {
+            id: 'child-parent-a2',
             name: 'Child Parent A2',
-            children: [{ name: 'Child A21' }, { name: 'Child A22' }],
-          },
-        ],
+            children: [
+              { id: 'child-a21', name: 'Child A21' },
+              { id: 'child-a22', name: 'Child A22' }
+            ]
+          }
+        ]
       },
       {
+        id: 'parent-b',
         name: 'Parent B',
         children: [
-          { name: 'Child B1' },
-          { name: 'Child B2' },
+          { id: 'child-b1', name: 'Child B1' },
+          { id: 'child-b2', name: 'Child B2' },
           {
+            id: 'child-parent-b3',
             name: 'Child Parent B3',
-            children: [{ name: 'Child B31' }, { name: 'Child B32' }],
-          },
-        ],
-      },
-    ],
-  },
+            children: [
+              { id: 'child-b31', name: 'Child B31' },
+              { id: 'child-b32', name: 'Child B32' }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
+
 
 app.get('/tree', (req, res) => {
   res.json(treeData);
@@ -50,129 +62,198 @@ app.post('/tree', (req, res) => {
 
 let categoriesData = [
   {
+    id: 'category-1',
     name: 'Category 1',
-    content:
-      'Category 1 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
+  
   {
+    id: 'category-2',
     name: 'Category 2',
-    content:
-      'Category 2 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-a1',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-12',
+    name: 'Category 12',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-13',
+    name: 'Category 13',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-21',
+    name: 'Category 21',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-311',
+    name: 'Category 311',
+    treeNodeId: 'child-a21',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-411',
+    name: 'Category 411',
+    treeNodeId: 'child-a21',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-511',
+    name: 'Category 511',
+    treeNodeId: 'child-a21',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-611',
+    name: 'Category 611',
+    treeNodeId: 'child-a21',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
+  },
+  {
+    id: 'category-3',
     name: 'Category 3',
-    content:
-      'Category 3 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-a21',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-4',
     name: 'Category 4',
-    content:
-      'Category 4 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-a22',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-5',
     name: 'Category 5',
-    content:
-      'Category 5 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'parent-b',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-6',
     name: 'Category 6',
-    content:
-      'Category 6 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-b1',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-7',
     name: 'Category 7',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-b31',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-8',
     name: 'Category 8',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-b32',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-9',
     name: 'Category 9',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-parent-a2',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-10',
     name: 'Category 10',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-parent-b3',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
+    id: 'category-11',
     name: 'Category 11',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    treeNodeId: 'child-b2',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 8',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-12',
+    name: 'Category 12',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 9',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-13',
+    name: 'Category 13',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 10',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-21',
+    name: 'Category 21',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 11',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-31',
+    name: 'Category 31',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 8',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-41',
+    name: 'Category 41',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 9',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-51',
+    name: 'Category 51',
+    treeNodeId: 'parent-a',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 10',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-61',
+    name: 'Category 61',
+    treeNodeId: 'parent-b',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 11',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-15',
+    name: 'Category 15',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 8',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-16',
+    name: 'Category 16',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 9',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-17',
+    name: 'Category 17',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    name: 'Category 10',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
+    id: 'category-18',
+    name: 'Category 18',
+    treeNodeId: 'root',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
-  {
-    name: 'Category 11',
-    content:
-      'Category 7 : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
-  },
-  {
-    name: 'Category n',
-    content:
-      'Category n : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.',
-  },
+
+
 ];
+
 
 app.get('/categories', (req, res) => {
   res.json(categoriesData);
+});
+
+app.get('/categories/:menuItemId', (req, res) => {
+  // Extract the menuItemId from the request parameters
+  const { menuItemId } = req.params;
+  // Filter categories based on the menuItemId
+  const filteredCategories = categoriesData.filter(
+    category => category.treeNodeId === menuItemId
+  );
+  
+  res.json(filteredCategories);
 });
 
 // Additional endpoints for updating categories, etc.

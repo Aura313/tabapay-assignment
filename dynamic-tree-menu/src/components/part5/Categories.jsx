@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CustomModal from '../part2/CustomModal';
 import axios from 'axios';
+import '../part3/ContentArea.css';
 
 // PART 5
 /*
@@ -24,7 +25,7 @@ const initialCategoriesData = [
 ];
  */
 
-const Categories = () => {
+const Categories = ({ selectedNodeId }) => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedText, setSelectedText] = useState('');
@@ -36,34 +37,31 @@ const Categories = () => {
 
   //PART 6 : Fetching categories from the API
   useEffect(() => {
-    axios.get('http://localhost:3001/categories')
-      .then(response => {
-        setCategoriesData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching tree data:', error);
-      });
-  }, []);
+    if (selectedNodeId) {
+      axios
+        .get(`http://localhost:3001/categories/${selectedNodeId}`)
+        .then((response) => {
+          setCategoriesData(response.data);
+        })
+        .catch((error) => {
+          console.error('Error fetching tree data:', error);
+        });
+    }
+  }, [selectedNodeId]);
 
+  console.log(selectedNodeId, 'selectedNodeIdselectedNodeIdselectedNodeId');
   // PART 5 & 6
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '10px',
-          flexWrap: 'wrap'
-        }}
-      >
+      <div className='categories-wrapper'>
         {categoriesData.map((category) => (
-          <Card sx={{ width: 345, margin: '10px' }}>
+          <Card sx={{ width: 345, margin: '10px', marginRight: '20px' }}>
             <CardContent>
               <Typography gutterBottom variant='h5' component='div'>
                 {category.name}
               </Typography>
               <Typography variant='body2' color='text.secondary'>
-                {category.content.slice(0, 100)}...
+                <b>{category.name}</b>: {category.content.slice(0, 100)}...
               </Typography>
             </CardContent>
             <CardActions>
@@ -74,7 +72,11 @@ const Categories = () => {
           </Card>
         ))}
       </div>
-      <CustomModal handleClose={handleClose} content={selectedText}  open={open}/>
+      <CustomModal
+        handleClose={handleClose}
+        content={selectedText}
+        open={open}
+      />
     </>
   );
 };

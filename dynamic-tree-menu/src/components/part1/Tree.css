@@ -1,0 +1,41 @@
+.menu-wrapper {
+  background-color: aliceblue;
+  width: 20%;
+  padding: 10px;
+  height: 100%;
+  min-height: 80vh;
+}
+
+/* .abc {
+  background-color: '#ececec';
+  width: 20%;
+  padding: 10px;
+  height: 100%;
+  min-height: 80vh;
+} */
+
+.menu-item {
+  cursor: pointer;
+}
+.menu-item ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.menu-item ul li {
+  cursor: pointer;
+  line-height: 1.5;
+  margin-right: 8px;
+}
+
+.menu-item input[type='radio'] {
+  accent-color: black; 
+}
+
+/* style={{
+  backgroundColor: '#ececec',
+  width: '20%',
+  padding: '10px',
+  height: '100%',
+  minHeight: '80vh',
+}} */

@@ -6,8 +6,10 @@ import Footer from '../components/part4/Footer';
 
 const MainPage = () => {
   const [selectedText, setSelectedText] = useState('');
-  const handleSelectedText = (text) => {
+  const [selectedNodeId, setSelectedNodeId] = useState('');
+  const handleSelectedText = (text, nodeId) => {
     setSelectedText(text);
+    setSelectedNodeId(nodeId)
   };
 
   return (
@@ -16,7 +18,7 @@ const MainPage = () => {
       <div style={{ display: 'flex' }}>
         <TreeMenu handleSelectedText={handleSelectedText} />
         {/* <div style={{ backgroundColor: 'blue' }}> COntent</div> */}
-        <ContentArea heading={selectedText} />
+        <ContentArea heading={selectedText}  selectedNodeId={selectedNodeId}/>
       </div>
       <Footer />
     </div>

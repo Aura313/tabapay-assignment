@@ -1,12 +1,12 @@
 import React from "react";
-import './Menu.css';
+import './Tree.css'
 const TreeMenuItem = ({ node, manageModal, expandedNode, level }) => {
     const isExpanded = expandedNode[level] === node.name;
     const handleToggle = () => {
       const newExpandedState = !isExpanded ? node.name : '';
       
       //PART 2 - Modal management for Menu Items
-      manageModal(newExpandedState, node.name, level);
+      manageModal(newExpandedState, node.name, level, node.id);
     };
   
     return (
@@ -18,7 +18,7 @@ const TreeMenuItem = ({ node, manageModal, expandedNode, level }) => {
             {isExpanded && node.children.length > 0 ? '▼' : '►'} {node.name}
           </div>
         ) : (
-          <div>
+          <div style={{ cursor: 'default'}}>
             <input type='radio' checked readOnly /> {node.name}
           </div>
         )}

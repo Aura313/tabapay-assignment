@@ -1,6 +1,17 @@
-.categories {
+.content-area-wrapper {
     display: 'flex';
     flex-direction: 'column';
     width: 80%;
     padding: 10px;
+}
+
+.categories-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.content-area-wrapper h1 {
+    margin-left: 20px;
 }

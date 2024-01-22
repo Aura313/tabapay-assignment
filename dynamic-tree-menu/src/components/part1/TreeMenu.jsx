@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import TreeMenuItem from './TreeMenuItem';
-import './Menu.css';
+
 import CustomModal from '../part2/CustomModal';
 import axios from 'axios';
+
+import './Tree.css'
 // PART 1
 
 /* Initial data for static content
@@ -42,13 +44,12 @@ const TreeMenu = ({ handleSelectedText }) => {
   /**
    * PART 2 - Manage Modal State
    */
-  const manageModal = (newExpandedNode, text, level) => {
+  const manageModal = (newExpandedNode, text, level, nodeId) => {
     setExpandedNode((prev) => ({ ...prev, [level]: newExpandedNode }));
     const isExpanded = newExpandedNode === text;
-
     setOpen(isExpanded);
     setSelectedText(text);
-    handleSelectedText(text);
+    handleSelectedText(text, nodeId);
   };
 
   const handleClose = () => setOpen(false);
@@ -67,13 +68,7 @@ const TreeMenu = ({ handleSelectedText }) => {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: '#ececec',
-        width: '20%',
-        padding: '10px',
-      }}
-    >
+    <div className='menu-wrapper'>
       {/*  PART 1 : Render the tree structure recursively using TreeMenuItem components */}
       {treeData.map((rootNode) => (
         <TreeMenuItem

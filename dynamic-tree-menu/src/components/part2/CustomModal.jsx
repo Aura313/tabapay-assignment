@@ -10,7 +10,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -25,7 +24,7 @@ const CustomModal = ({ handleClose, content, open }) => {
         aria-describedby='modal-modal-description'
       >
         <Box sx={style}>
-          <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+          <Typography id='modal-modal-description'>
             {content}
           </Typography>
         </Box>
