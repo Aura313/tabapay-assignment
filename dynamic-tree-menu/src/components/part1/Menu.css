@@ -1,0 +1,23 @@
+.munu-wrapper {
+  background-color: '#ececec';
+  width: 20%;
+  padding: 10px;
+}
+
+.menu-item {
+  cursor: pointer;
+}
+.menu-item ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.menu-item ul li {
+  cursor: pointer;
+  line-height: 1.5;
+  margin-right: 8px;
+}
+
+.menu-item input[type='radio'] {
+  accent-color: black; 
+}

@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #efe2ba;
+  justify-content: space-between;
+  padding: 5px;
+}
+header .logo-wrapper-lt {
+  display: flex;
+  width: 20%;
+}
+
+header .logo-wrapper-rt {
+  width: 80%;
+}
+header img {
+  margin-right: 10px;
+  width: 40px;
+}
+
+header ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+
+header ul li {
+  cursor: pointer;
+  line-height: 1.5;
+  margin-right: 20px;
+}
+
+/* listStyleType: 'none',
+display: 'flex',
+justifyContent: 'flex-end',
+padding: '0',
+margin: '0', */
