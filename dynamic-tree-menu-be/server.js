@@ -87,8 +87,8 @@ let categoriesData = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    id: 'category-21',
-    name: 'Category 21',
+    id: 'category-27',
+    name: 'Category 27',
     treeNodeId: 'parent-a',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
@@ -171,8 +171,8 @@ let categoriesData = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    id: 'category-12',
-    name: 'Category 12',
+    id: 'category-20',
+    name: 'Category 20',
     treeNodeId: 'root',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
@@ -189,8 +189,8 @@ let categoriesData = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
   {
-    id: 'category-31',
-    name: 'Category 31',
+    id: 'category-36',
+    name: 'Category 36',
     treeNodeId: 'parent-a',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis sed tortor vitae molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer pretium tempor tellus vitae rhoncus. Nulla ante quam, mattis in viverra ut, tincidunt non diam. Nam sagittis sagittis semper. Vivamus ut blandit ligula, et pulvinar nisi. Praesent luctus, nisl at facilisis euismod, dolor dui pharetra justo, et interdum dui leo eget velit. Nam sodales nibh a est ornare gravida.'
   },
