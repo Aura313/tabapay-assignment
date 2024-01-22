@@ -5,7 +5,7 @@ const TreeMenuItem = ({ node, manageModal, expandedNode, level }) => {
     const handleToggle = () => {
       const newExpandedState = !isExpanded ? node.name : '';
       
-      //PART 2
+      //PART 2 - Modal management for Menu Items
       manageModal(newExpandedState, node.name, level);
     };
   

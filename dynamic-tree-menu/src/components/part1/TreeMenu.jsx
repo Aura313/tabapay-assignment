@@ -37,16 +37,13 @@ const TreeMenu = ({ handleSelectedText }) => {
   const [treeData, setTreeData] = useState([]);
   const [selectedText, setSelectedText] = useState('');
   const [open, setOpen] = useState(false);
+  const [expandedNode, setExpandedNode] = useState({ 0: '' });
 
-  // const [expandedNode, setExpandedNode] = useState('');
-  const [expandedNode, setExpandedNode] = useState({ 0: '' }); // Default expanded node for level 0 (root level)
-
-  const handleClose = () => setOpen(false);
-
-  //PART 2
+  /**
+   * PART 2 - Manage Modal State
+   */
   const manageModal = (newExpandedNode, text, level) => {
     setExpandedNode((prev) => ({ ...prev, [level]: newExpandedNode }));
-    // setExpandedNode(newExpandedNode); // Update the expanded node
     const isExpanded = newExpandedNode === text;
 
     setOpen(isExpanded);
@@ -54,7 +51,9 @@ const TreeMenu = ({ handleSelectedText }) => {
     handleSelectedText(text);
   };
 
-  //PART 6
+  const handleClose = () => setOpen(false);
+
+  //PART 6 : Fetch tree data from the API on component mount
 
   useEffect(() => {
     axios
@@ -75,7 +74,7 @@ const TreeMenu = ({ handleSelectedText }) => {
         padding: '10px',
       }}
     >
-      {/* PART 1 */}
+      {/*  PART 1 : Render the tree structure recursively using TreeMenuItem components */}
       {treeData.map((rootNode) => (
         <TreeMenuItem
           key={rootNode.id}
@@ -85,7 +84,7 @@ const TreeMenu = ({ handleSelectedText }) => {
           level={0} // Root
         />
       ))}
-      {/* PART 2 */}
+      {/* PART 2 : Modal component to display the selected tree item */}
       <CustomModal
         handleClose={handleClose}
         content={selectedText}

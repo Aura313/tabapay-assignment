@@ -1,5 +1,6 @@
 import React from 'react';
 
+//PART 4 : Footer
 const Footer = () => {
   return (
     <footer
@@ -10,7 +11,7 @@ const Footer = () => {
         padding: '10px',
       }}
     >
-      <p> {new Date().getFullYear()} Company Name</p>
+      <p> {new Date().getFullYear()} Footer: Company Name</p>
       <p>
         Contact Us: &nbsp;
         <a

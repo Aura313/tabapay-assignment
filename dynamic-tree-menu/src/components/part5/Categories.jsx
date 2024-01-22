@@ -34,7 +34,7 @@ const Categories = () => {
   };
   const handleClose = () => setOpen(false);
 
-  //PART 6
+  //PART 6 : Fetching categories from the API
   useEffect(() => {
     axios.get('http://localhost:3001/categories')
       .then(response => {

@@ -3,6 +3,9 @@ import Categories from '../part5/Categories';
 
 import './ContentArea.css';
 
+//Part 3 & Part 5 : Area to Represent the clicked Tree Item & Categories
+
+
 const ContentArea = ({ heading }) => {
   return (
     <div
